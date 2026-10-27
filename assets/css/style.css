@@ -1,4 +1,7 @@
 /* EPC-Consulting — Global Services */
+@font-face { font-family: "Archivo"; src: url("../fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "Public Sans"; src: url("../fonts/public-sans.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
 :root {
   --ink: #0d2236;
   --ink-2: #163a57;
@@ -322,4 +325,20 @@ h3 { font-size: 1.3rem; }
   .strip .wrap > div:first-child { border-top: 0; }
   .why img, .zone img, .media img { box-shadow: 10px 10px 0 var(--concrete); }
   .zone img { box-shadow: 10px 10px 0 var(--ink-2); }
+}
+
+/* ---------- Alignment fixes ---------- */
+.info div { grid-template-columns: 200px 1fr; }
+.section-tint .why img, .section-tint .media img { box-shadow: 16px 16px 0 #fff; }
+.trust img { mix-blend-mode: multiply; }
+
+@media (max-width: 980px) {
+  .service { grid-template-columns: 64px minmax(0, 1fr); gap: 16px 20px; align-items: center; padding: 32px 0; }
+  .service > :last-child { grid-column: 1 / -1; }
+  .section-tint .why img, .section-tint .media img { box-shadow: 10px 10px 0 #fff; }
+}
+@media (max-width: 620px) {
+  .info div { grid-template-columns: 1fr; }
+  .wa { width: 50px; height: 50px; right: 14px; bottom: 14px; }
+  .wa svg { width: 26px; height: 26px; }
 }
