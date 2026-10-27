@@ -1,7 +1,4 @@
 /* EPC-Consulting — Global Services */
-@font-face { font-family: "Archivo"; src: url("../fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
-@font-face { font-family: "Public Sans"; src: url("../fonts/public-sans.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-
 :root {
   --ink: #0d2236;
   --ink-2: #163a57;
@@ -35,7 +32,7 @@ h1, h2, h3 {
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
-h1 { font-size: clamp(2rem, 3.6vw, 3.1rem); }
+h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); }
 h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
 h3 { font-size: 1.3rem; }
 
@@ -100,7 +97,7 @@ h3 { font-size: 1.3rem; }
 .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--ink) 0, rgba(13,34,54,0) 38%); }
 .hero-photo > img.hero-mark {
-  position: absolute; z-index: 2; inset: auto auto 0 8%; height: 38%; width: auto; object-fit: contain;
+  position: absolute; z-index: 2; inset: auto auto 0 8%; height: 44%; width: auto; object-fit: contain;
   clip-path: inset(100% 0 0 0);
   animation: rise 1.5s .35s cubic-bezier(.2,.7,.2,1) forwards;
 }
@@ -286,59 +283,4 @@ h3 { font-size: 1.3rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-mark { animation: none; clip-path: none; }
-}
-
-/* ---------- Refinements ---------- */
-.ic { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--blue-deep); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.row-t { display: flex; align-items: center; gap: 14px; }
-
-.strip { background: #fff; border-bottom: 1px solid var(--line); }
-.strip .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
-.strip .wrap > div { padding: 30px 32px; border-left: 1px solid var(--line); }
-.strip .wrap > div:first-child { padding-left: 0; border-left: 0; }
-.strip strong { display: block; font: 700 1.2rem/1.25 "Archivo", sans-serif; font-stretch: 108%; }
-.strip span { display: block; margin-top: 4px; font-size: 0.95rem; color: var(--steel); }
-
-.why img { box-shadow: 16px 16px 0 var(--concrete); }
-.zone img { box-shadow: 16px 16px 0 var(--ink-2); }
-.media img { box-shadow: 16px 16px 0 var(--concrete); }
-
-.service-ic { width: 64px; height: 64px; display: grid; place-items: center; background: var(--concrete); border-radius: var(--r); }
-.service-ic .ic { width: 32px; height: 32px; }
-.tile .ic { position: absolute; top: 22px; left: 22px; width: 38px; height: 38px; stroke: var(--blue-soft); }
-.tile.has-photo .ic { display: none; }
-
-.section-tint { background: linear-gradient(180deg, var(--concrete), #e6ebf0); }
-.btn-blue:hover { background: var(--blue-soft); border-color: var(--blue-soft); }
-
-.wa {
-  position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 58px; height: 58px;
-  display: grid; place-items: center; border-radius: 50%; background: #1fa855;
-  box-shadow: 0 6px 18px rgba(13,34,54,.28); transition: transform .15s;
-}
-.wa:hover { transform: scale(1.06); }
-.wa svg { width: 30px; height: 30px; }
-
-@media (max-width: 980px) {
-  .strip .wrap { grid-template-columns: 1fr; }
-  .strip .wrap > div { padding: 18px 0; border-left: 0; border-top: 1px solid var(--line); }
-  .strip .wrap > div:first-child { border-top: 0; }
-  .why img, .zone img, .media img { box-shadow: 10px 10px 0 var(--concrete); }
-  .zone img { box-shadow: 10px 10px 0 var(--ink-2); }
-}
-
-/* ---------- Alignment fixes ---------- */
-.info div { grid-template-columns: 200px 1fr; }
-.section-tint .why img, .section-tint .media img { box-shadow: 16px 16px 0 #fff; }
-.trust img { mix-blend-mode: multiply; }
-
-@media (max-width: 980px) {
-  .service { grid-template-columns: 64px minmax(0, 1fr); gap: 16px 20px; align-items: center; padding: 32px 0; }
-  .service > :last-child { grid-column: 1 / -1; }
-  .section-tint .why img, .section-tint .media img { box-shadow: 10px 10px 0 #fff; }
-}
-@media (max-width: 620px) {
-  .info div { grid-template-columns: 1fr; }
-  .wa { width: 50px; height: 50px; right: 14px; bottom: 14px; }
-  .wa svg { width: 26px; height: 26px; }
 }
