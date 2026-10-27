@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.epc-consulting.com/sitemap.xml
