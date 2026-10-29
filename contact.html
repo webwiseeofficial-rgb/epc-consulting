@@ -16,7 +16,7 @@
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 <a class="skip" href="#main">Aller au contenu</a>
@@ -62,13 +62,13 @@
       </ul>
     </div>
     <form class="form" id="quote-form">
-      <h2>Décrivez votre besoin</h2>
+      <div class="form-top"><h2>Décrivez votre besoin</h2><span class="form-badge">Réponse sous 24 h</span></div>
       <div class="field-2">
-        <div class="field"><label for="name">Nom et prénom</label><input id="name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="company">Société</label><input id="company" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="name">Nom et prénom <span class="req">*</span></label><input id="name" name="name" autocomplete="name" placeholder="Votre nom" required></div>
+        <div class="field"><label for="company">Société</label><input id="company" name="company" autocomplete="organization" placeholder="Nom de votre société"></div>
       </div>
       <div class="field-2">
-        <div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="phone">Téléphone / WhatsApp</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+213 …"></div>
         <div class="field"><label for="service">Service concerné</label>
           <select id="service" name="service">
             <option>Devis / offre commerciale</option>
@@ -84,12 +84,12 @@
           </select>
         </div>
       </div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+      <div class="field"><label for="message">Votre besoin <span class="req">*</span></label><textarea id="message" name="message" placeholder="Ex. : type de projet, lieu du site, délai souhaité…" required></textarea></div>
       <div class="btn-row">
-        <button class="btn" type="submit">Envoyer sur WhatsApp</button>
-        <button class="btn btn-line" type="button" id="send-mail">Envoyer par e-mail</button>
+        <button class="btn btn-blue" type="submit"><svg class="bi" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.5 21.5l4.7-1.2A9.5 9.5 0 1 0 12 2.5z"/></svg>Envoyer sur WhatsApp</button>
+        <button class="btn btn-line" type="button" id="send-mail"><svg class="bi" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Envoyer par e-mail</button>
       </div>
-      <p class="form-hint">Votre message s’ouvre dans WhatsApp ou dans votre messagerie, prêt à être envoyé.</p>
+      <p class="form-hint">Un clic ouvre WhatsApp (ou votre messagerie) avec votre message déjà rédigé, il ne reste qu’à l’envoyer.</p>
     </form>
   </div>
 </section>
@@ -143,6 +143,6 @@
   <a href="https://wa.me/213661248502" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.5 21.5l4.7-1.2A9.5 9.5 0 1 0 12 2.5z"/></svg>WhatsApp</a>
   <a class="main" href="contact.html">Demander un devis</a>
 </div>
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>
