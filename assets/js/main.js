@@ -9,7 +9,7 @@
   }
 
   // Scroll reveal (staggered), skipped for reduced-motion or old browsers
-  var targets = document.querySelectorAll('.hero-copy > *, .hx-copy > *, .hx-media, .fs-grid > div, .svc, .step, .sec-head, .why-img, .partners > *, .cta2 .box, .strip .wrap > div, .split-head, .row, .chips li, .band h2, .why > *, .points li, .zone > *, .cta .wrap > *, .page-head .wrap > *, .service, .tile, .about > *, .values div, .contact > *, .trust img, .ticks li');
+  var targets = document.querySelectorAll('.hero-copy > *, .bt, .svc-cards > *, .hx-copy > *, .hx-media, .fs-grid > div, .svc, .step, .sec-head, .why-img, .partners > *, .cta2 .box, .strip .wrap > div, .split-head, .row, .chips li, .band h2, .why > *, .points li, .zone > *, .cta .wrap > *, .page-head .wrap > *, .service, .tile, .about > *, .values div, .contact > *, .trust img, .ticks li');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!('IntersectionObserver' in window) || reduce) {
     targets.forEach(function (el) { el.classList.add('reveal', 'in'); });
