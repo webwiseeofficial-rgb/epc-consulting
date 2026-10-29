@@ -61,6 +61,13 @@
 
   // Contact form: opens WhatsApp or the mail client with the message pre-filled
   var form = document.getElementById('quote-form');
+  var wanted = new URLSearchParams(window.location.search).get('service');
+  var sel = document.getElementById('service');
+  if (wanted && sel) {
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (o.text.toLowerCase() === wanted.toLowerCase()) { sel.value = o.value; }
+    });
+  }
   if (form) {
     var PHONE = '213661248502';
     var MAIL = 'contact@epc-consulting.com';
