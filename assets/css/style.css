@@ -929,3 +929,30 @@ h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
 .cta-card .btn { white-space: nowrap; padding: 14px 22px; }
 .service.service-card .service-media { flex: none; width: 100%; }
 .service.service-card { gap: 0; }
+
+/* ---------- Mobile v4: 2-up service cards + swipeable home carousel ---------- */
+@media (max-width: 760px) {
+  .svc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .service.service-card { border-radius: 20px; }
+  .service-media { aspect-ratio: 4 / 3.3; }
+  .service-num { left: 9px; bottom: 9px; padding: 5px 9px; font-size: .66rem; }
+  .service-media .service-ic { top: 8px; right: 8px; width: 34px; height: 34px; }
+  .service-media .service-ic .ic { width: 17px; height: 17px; }
+  .service-body { padding: 14px 14px 16px; gap: 8px; }
+  .service.service-card h2 { font-size: 1rem !important; line-height: 1.25; }
+  .service-body p { font-size: .84rem; line-height: 1.5; }
+  .service.service-card .gain { display: none; }
+  .service-body .more { font-size: .84rem; line-height: 1.3; padding-top: 4px; width: 100%; justify-content: space-between; gap: 6px; }
+  .service-body .more .ar { width: 16px; height: 16px; margin-left: 0; flex: none; }
+  .service.service-card.cta-card { padding: 18px 16px; gap: 10px; }
+  .cta-card h2 { font-size: 1.1rem !important; }
+  .cta-card .btn { width: 100%; padding: 12px 14px; font-size: .82rem; white-space: normal; justify-content: center; text-align: center; }
+  .cta-card .btn .ar { display: none; }
+
+  .bento { gap: 14px; }
+  .bento .bt, .bento .bt-w { flex: 0 0 72%; aspect-ratio: 1.22 / 1; }
+  .bt h3, .bt-w h3 { font-size: 1.08rem; }
+  .bt-info { left: 16px; right: 16px; bottom: 16px; gap: 8px; }
+  .bt-tag { font-size: .72rem; padding: 6px 11px; }
+  .bt-go { top: 12px; right: 12px; width: 38px; height: 38px; }
+}
