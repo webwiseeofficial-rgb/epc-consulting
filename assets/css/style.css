@@ -956,3 +956,80 @@ h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
   .bt-tag { font-size: .72rem; padding: 6px 11px; }
   .bt-go { top: 12px; right: 12px; width: 38px; height: 38px; }
 }
+
+/* =====================================================================
+   V5 — hero polish, light timeline, domain cards, FAQ
+   ===================================================================== */
+/* Hero: calmer headline + blueprint texture */
+.hx h1 { font-size: clamp(2rem, 3.6vw, 3.05rem); line-height: 1.1; max-width: 22ch; }
+.hx::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(159,208,234,.075) 1px, transparent 1px), linear-gradient(90deg, rgba(159,208,234,.075) 1px, transparent 1px);
+  background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 70% 80% at 25% 35%, #000 0, transparent 75%); mask-image: radial-gradient(ellipse 70% 80% at 25% 35%, #000 0, transparent 75%); }
+
+/* Steps: light cards + connected timeline */
+.steps { gap: 20px; }
+.steps .step { position: relative; padding: 28px 26px; border-radius: 24px; background: #fff; border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow-sm); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.steps .step:hover { transform: translateY(-5px); background: #fff; box-shadow: var(--shadow); }
+.steps .step:not(:last-child)::after { content: ""; position: absolute; top: 52px; right: -20px; width: 20px; height: 2px; background: var(--blue); }
+.step-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.steps .step b { margin: 0; width: 48px; height: 48px; font-size: 1.1rem; box-shadow: 0 10px 22px -10px rgba(73,165,210,.9); }
+.step-top .ic { width: 46px; height: 46px; padding: 10px; border-radius: 14px; background: linear-gradient(135deg, rgba(73,165,210,.22), rgba(73,165,210,.06)); stroke: var(--blue-deep); }
+.steps .step h3 { color: var(--ink); font-size: 1.15rem; margin-bottom: 8px; }
+.steps .step p { color: var(--steel); font-size: .97rem; line-height: 1.6; }
+.steps-cta { margin-top: 40px; text-align: center; }
+.section-tint .sec-head p { color: var(--steel); }
+
+/* Domains: icon cards on the photo band */
+.band .sec-head { margin-bottom: 36px; } .band .sec-head h2 { color: #fff; }
+.band .sec-head p { color: #c9d6e0; }
+.domains { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.domains li { padding: 0; border: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 0; }
+.domains li::before { display: none; }
+.domains li:hover { transform: none; background: none; border-color: transparent; }
+.dom { display: flex; align-items: center; gap: 18px; padding: 22px 24px; border-radius: 22px; color: #fff; text-decoration: none; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: transform .3s var(--ease), background .3s, border-color .3s; }
+.dom-ic { flex: none; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: rgba(73,165,210,.18); border: 1px solid rgba(159,208,234,.3); }
+.dom-ic svg { width: 28px; height: 28px; fill: none; stroke: var(--blue-soft); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.dom strong { flex: 1; font: 700 1.1rem/1.25 "Archivo", sans-serif; font-stretch: 105%; }
+.d-go { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.28); transition: background .3s, color .3s, border-color .3s; }
+.dom:hover { transform: translateY(-4px); background: rgba(73,165,210,.18); border-color: rgba(73,165,210,.7); }
+.dom:hover .d-go { background: var(--blue); color: var(--ink); border-color: var(--blue); }
+
+/* FAQ */
+.faq-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.faq-side h2 { margin: 16px 0 14px; }
+.faq-side p { color: var(--steel); margin-bottom: 26px; max-width: 42ch; }
+.faq details { border: 1px solid var(--line); border-radius: 20px; background: #fff; margin-bottom: 12px; transition: box-shadow .3s, border-color .3s; }
+.faq details[open] { box-shadow: var(--shadow-sm); border-color: rgba(73,165,210,.55); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 24px; font: 700 1.05rem/1.3 "Archivo", sans-serif; color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(73,165,210,.16); color: var(--blue-deep); font: 600 1.35rem/1 "Public Sans", sans-serif; transition: background .3s; }
+.faq details[open] summary::after { content: "–"; background: var(--blue); color: var(--ink); }
+.faq details p { padding: 0 24px 22px; margin: 0; color: var(--steel); line-height: 1.7; }
+.faq details a { color: var(--blue-deep); text-underline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .domains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .faq-wrap { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 980px) { .steps .step:not(:last-child)::after { display: none; } }
+@media (max-width: 760px) {
+  .hx h1 { font-size: 1.72rem; }
+  .steps .step { padding: 20px 18px; border-radius: 20px; }
+  .step-top { margin-bottom: 14px; }
+  .steps .step b { width: 38px; height: 38px; font-size: .95rem; }
+  .step-top .ic { width: 38px; height: 38px; padding: 8px; border-radius: 12px; }
+  .steps .step h3 { font-size: 1rem; }
+  .steps .step p { font-size: .86rem; line-height: 1.55; }
+  .steps-cta { margin-top: 26px; } .steps-cta .btn { width: 100%; text-align: center; }
+  .domains { gap: 12px; }
+  .dom { flex-direction: column; align-items: flex-start; gap: 14px; padding: 18px 16px; border-radius: 18px; min-height: 132px; }
+  .dom-ic { width: 46px; height: 46px; border-radius: 14px; } .dom-ic svg { width: 24px; height: 24px; }
+  .dom strong { font-size: .98rem; flex: none; }
+  .d-go { display: none; }
+  .faq-wrap { gap: 26px; }
+  .faq summary { padding: 16px 18px; font-size: 1rem; }
+  .faq details { margin-bottom: 10px; border-radius: 16px; }
+  .faq details p { padding: 0 18px 18px; font-size: .95rem; }
+  .faq-side p { margin-bottom: 20px; }
+  .faq-side .btn { width: 100%; text-align: center; }
+}
