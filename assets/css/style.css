@@ -1093,3 +1093,29 @@ h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
 }
 
 .hx2 .wrap { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------- V8: page headers without the logo watermark ---------- */
+.page-head::after { content: none !important; display: none; }
+
+/* ---------- V8: contact page on mobile, tighter but still airy ---------- */
+@media (max-width: 760px) {
+  .contact { gap: 26px; }
+  .contact h2 { margin-bottom: 4px; }
+  .info { margin-top: 14px; }
+  .info div { padding: 12px 0; gap: 2px; }
+  .info dt { font-size: .9rem; }
+  .info dd { margin: 0; }
+  .needs { margin-top: 16px; }
+  .needs li { padding-top: 9px; padding-bottom: 9px; }
+
+  .form { padding: 20px 18px; }
+  .form-top { margin-bottom: 14px; }
+  .form-top h2 { font-size: 1.35rem; }
+  .field { margin-bottom: 12px; }
+  .field label { margin-bottom: 6px; font-size: .88rem; }
+  .field input, .field select { min-height: 48px; padding: 12px 14px; }
+  .field textarea { min-height: 100px; padding: 12px 14px; }
+  .form .btn-row { gap: 10px; margin-top: 2px; }
+  .form .btn { padding: 14px 20px; }
+  .form-hint { margin-top: 12px; }
+}
