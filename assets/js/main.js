@@ -8,24 +8,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Scroll reveal (staggered), skipped for reduced-motion or old browsers
-  var targets = document.querySelectorAll('.hero-copy > *, .bt, .svc-cards > *, .hx-copy > *, .hx-media, .fs-grid > div, .svc, .step, .sec-head, .why-img, .partners > *, .cta2 .box, .strip .wrap > div, .split-head, .row, .chips li, .band h2, .why > *, .points li, .zone > *, .cta .wrap > *, .page-head .wrap > *, .service, .tile, .about > *, .values div, .contact > *, .trust img, .ticks li');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!('IntersectionObserver' in window) || reduce) {
-    targets.forEach(function (el) { el.classList.add('reveal', 'in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    targets.forEach(function (el) {
-      var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
-      el.style.setProperty('--d', Math.min(sibs, 6) * 0.07 + 's');
-      el.classList.add('reveal');
-      io.observe(el);
-    });
-  }
   // Mobile navigation
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('nav');
@@ -100,5 +82,16 @@
         window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(compose());
       });
     }
+  }
+
+  // Home hero: quick quote request -> WhatsApp with the message pre-filled
+  var heroForm = document.getElementById('hero-form');
+  if (heroForm) {
+    heroForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(heroForm);
+      var msg = ['Bonjour EPC-Consulting,', '', 'Nom : ' + (d.get('name') || ''), 'Téléphone : ' + (d.get('phone') || '-'), '', 'Besoin : ' + (d.get('message') || '')].join('\n');
+      window.open('https://wa.me/213661248502?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
   }
 })();
