@@ -8,6 +8,28 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  // Scroll reveal (staggered). Classes are removed once the animation is done so hover effects keep working.
+  var targets = document.querySelectorAll('.hero-copy > *, .hx-copy > *, .hx-aside, .fs-grid > div, .bt, .svc-cards > *, .sec-head, .step, .domains li, .why-img, .why > *, .points li, .faq-side, .faq details, .trust-wrap, .cta2 .box, .page-head .wrap > *, .service, .tile, .about > *, .values div, .contact > *, .ticks li, .zone > *, .cta .wrap > *, .split-head, .row, .chips li, .band h2');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          el.classList.add('in');
+          io.unobserve(el);
+          setTimeout(function () { el.classList.remove('reveal', 'in'); el.style.removeProperty('--d'); }, 1500);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function (el) {
+      var pos = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+      el.style.setProperty('--d', Math.min(pos, 6) * 0.07 + 's');
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+
   // Mobile navigation
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('nav');
@@ -84,14 +106,4 @@
     }
   }
 
-  // Home hero: quick quote request -> WhatsApp with the message pre-filled
-  var heroForm = document.getElementById('hero-form');
-  if (heroForm) {
-    heroForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(heroForm);
-      var msg = ['Bonjour EPC-Consulting,', '', 'Nom : ' + (d.get('name') || ''), 'Téléphone : ' + (d.get('phone') || '-'), '', 'Besoin : ' + (d.get('message') || '')].join('\n');
-      window.open('https://wa.me/213661248502?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    });
-  }
 })();
