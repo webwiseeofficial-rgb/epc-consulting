@@ -69,25 +69,22 @@
   var sel = document.getElementById('service');
   if (wanted && sel) {
     Array.prototype.forEach.call(sel.options, function (o) {
-      if (o.value.toLowerCase() === wanted.toLowerCase()) { sel.value = o.value; }
+      if (o.text.toLowerCase() === wanted.toLowerCase()) { sel.value = o.value; }
     });
   }
   if (form) {
     var PHONE = '213661248502';
     var MAIL = 'contact@epc-consulting.com';
 
-    // Text of the message follows the page language (EPC_I18N.t returns the French text if i18n is absent)
-    var t = function (fr) { return window.EPC_I18N ? window.EPC_I18N.t(fr) : fr; };
-
     var compose = function () {
       var d = new FormData(form);
       var lines = [
-        t('Bonjour EPC-Consulting,'),
+        'Bonjour EPC-Consulting,',
         '',
-        t('Nom :') + ' ' + (d.get('name') || ''),
-        t('Société :') + ' ' + (d.get('company') || '-'),
-        t('Téléphone :') + ' ' + (d.get('phone') || '-'),
-        t('Besoin :') + ' ' + t(d.get('service') || '-'),
+        'Nom : ' + (d.get('name') || ''),
+        'Société : ' + (d.get('company') || '-'),
+        'Téléphone : ' + (d.get('phone') || '-'),
+        'Besoin : ' + (d.get('service') || '-'),
         '',
         d.get('message') || ''
       ];
@@ -103,7 +100,7 @@
     if (mailBtn) {
       mailBtn.addEventListener('click', function () {
         if (!form.reportValidity()) return;
-        var subject = t('Demande de devis -') + ' ' + (new FormData(form).get('name') || '');
+        var subject = 'Demande de devis - ' + (new FormData(form).get('name') || '');
         window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(compose());
       });
     }
