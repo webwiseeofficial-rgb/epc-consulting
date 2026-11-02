@@ -74,7 +74,7 @@
   }
   if (form) {
     var PHONE = '213661248502';
-    var MAIL = 'contact@epc-consulting.com';
+    var MAIL = 'contact@epc-consultingsolutions.com';
 
     // Text of the message follows the page language (EPC_I18N.t returns the French text if i18n is absent)
     var t = function (fr) { return window.EPC_I18N ? window.EPC_I18N.t(fr) : fr; };
