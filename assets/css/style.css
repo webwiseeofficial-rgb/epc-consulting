@@ -1168,6 +1168,8 @@ html[dir="rtl"] a[href^="tel:"], html[dir="rtl"] a[href^="mailto:"], html[dir="r
   direction: ltr; unicode-bidi: isolate; display: inline-block;
 }
 html[dir="rtl"] input[type="tel"] { direction: ltr; text-align: right; }
+/* the mobile bottom bar keeps its normal flex layout (icon + label), also for the tel: button */
+html[dir="rtl"] .mbar a { display: flex; direction: rtl; unicode-bidi: normal; }
 
 /* ---------- RTL mirroring ---------- */
 html[dir="rtl"] .skip { left: auto; right: -999px; }
