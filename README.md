@@ -9,7 +9,7 @@ Site statique (HTML / CSS / JS), sans build. Prêt pour Vercel.
 
 ## Ajouter les photos de projets
 Déposez une image JPG nommée comme l'identifiant du projet dans `assets/img/projets/` :
-`charpente-cabine.jpg`, `station-traitement-eau-potable.jpg`, `design-interieur.jpg`, `terrain-multisport.jpg`,
+`charpente-cabine.jpg`, `station-traitement-eau-potable.jpg`, `terrain-multisport.jpg`,
 `salle-de-meeting.jpg`, `amenagement-barbecue.jpg`, `camera-tower-pylon.jpg`, `parking-ambulance.jpg`,
 `civil-work-for-cctv.jpg`, `engineering.jpg`, `maintenances.jpg`, `procurement.jpg`.
 Elles s'affichent automatiquement sur la page Projets (format conseillé : 1200 x 900 px).
