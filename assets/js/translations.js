@@ -242,5 +242,9 @@ window.EPC_T = [
   ["Société :", "Company:", "الشركة :"],
   ["Téléphone :", "Phone:", "الهاتف :"],
   ["Besoin :", "Request:", "الطلب :"],
+  ["photos", "photos", "صور"],
+  ["Fermer", "Close", "إغلاق"],
+  ["Photo précédente", "Previous photo", "الصورة السابقة"],
+  ["Photo suivante", "Next photo", "الصورة التالية"],
   ["Demande de devis -", "Quote request -", "طلب عرض سعر -"]
 ];
