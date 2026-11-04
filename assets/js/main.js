@@ -42,7 +42,9 @@
 
   // Projects: optional photos. Drop assets/img/projets/<slug>.jpg and it appears automatically.
   document.querySelectorAll('.tile[data-slug]').forEach(function (tile) {
-    var url = 'assets/img/projets/' + tile.getAttribute('data-slug') + '.jpg';
+    var slug = tile.getAttribute('data-slug');
+    // gallery projects keep their cover in their own folder, others use assets/img/projets/<slug>.jpg
+    var url = tile.hasAttribute('data-photos') ? 'assets/img/projets/' + slug + '/cover.jpg' : 'assets/img/projets/' + slug + '.jpg';
     var img = new Image();
     img.onload = function () {
       tile.style.backgroundImage = 'url("' + url + '")';
